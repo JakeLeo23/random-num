@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Tailwind Boiler</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="output.css" />
+  </head>
+
+  <body class="bg-gray-100">
+    <div id="title-bar" class="flex h-1/5">
+      <div class="">
+        <a class="p-0" href="http://127.0.0.1:5500/rules.html"> 
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-forward-up bg-blue-300 rounded-full mx-auto align-middle" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 13l4 -4l-4 -4m4 4h-11a4 4 0 0 0 0 8h1" />
+          </svg> 
+        </a>
+      </div>
+      <p class="mx-auto text-6xl text-red-700 font-poppins font-bold py-10">
+        Guess The Number
+      </p>
+    </div>
+    <div id="search-bar" class="flex justify-center py-10 h-1/5">
+      <div class="flex gap-4">
+        <input id="input-num" class="border-blue-900 border-4 rounded-lg focus:outline-none p-1" type="text" name="" placeholder="Enter a number!"/>
+        <button id='enter' onclick="run(); counter()" class="bg-blue-500 focus:outline-none rounded px-3 hover:bg-blue-400 text-white font-poppins text-xl">Enter</button>
+      </div>
+    </div>
+
+
+    <div class="pt-20">
+      <div id="result" class="text-center text-6xl text-gray-800 font-poppins font-bold px-10">
+      </div>
+      <div id="result2" class="text-center text-9xl font-poppins font-bold px-10">
+      </div>
+      <div id="result3" class="text-center text-3xl font-poppins font-bold px-10">
+      </div>
+    </div>
+
+
+    <script>
+      let random = Math.floor(Math.random()*100)+1;
+      let input2 = document.getElementById("input-num");
+      let attempt = 0;
+
+      function counter(){
+      }
+
+       function run(){
+        let input = input2.value;
+        let dif = Math.abs(+input - random);
+        console.log(dif);
+
+        attempt = attempt + 1;
+
+        if (dif>= 40){
+          document.getElementById('result').innerHTML = '';
+          document.getElementById('result2').innerHTML = '';
+          let cold = "Your Guess is"
+          let cold2 = "COLD"
+          const element = document.createElement('div');
+          const element2 = document.createElement('div');
+          element.innerHTML = cold
+          element2.innerHTML = cold2
+          result.appendChild(element);
+          result2.appendChild(element2);
+          result2.style.color = "aqua";
+        } else if (dif>=20 && dif<=39) {
+          document.getElementById('result').innerHTML = '';
+          document.getElementById('result2').innerHTML = '';
+          let lukewarm = "Your Guess is"
+          let lukewarm2 = "LUKEWARM"
+          const element = document.createElement('div');
+          const element2 = document.createElement('div');
+          element.innerHTML = lukewarm
+          element2.innerHTML = lukewarm2
+          result.appendChild(element);
+          result2.appendChild(element2);
+          result2.style.color = "lightgray";
+        } else if (dif>=10 && dif<=19) {
+          document.getElementById('result').innerHTML = '';
+          document.getElementById('result2').innerHTML = '';
+          let warm = "Your Guess is"
+          let warm2 = "WARM"
+          const element = document.createElement('div');
+          const element2 = document.createElement('div');
+          element.innerHTML = warm
+          element2.innerHTML = warm2
+          result.appendChild(element);
+          result2.appendChild(element2);
+          result2.style.color = "yellow";
+        } else if (dif>=5 && dif<=9) {
+          document.getElementById('result').innerHTML = '';
+          document.getElementById('result2').innerHTML = '';
+          let hot = "Your Guess is"
+          let hot2 = "HOT"
+          const element = document.createElement('div');
+          const element2 = document.createElement('div');
+          element.innerHTML = hot
+          element2.innerHTML = hot2
+          result.appendChild(element);
+          result2.appendChild(element2);
+          result2.style.color = "orange";
+        } else if (dif>=1 && dif<=4) {
+          document.getElementById('result').innerHTML = '';
+          document.getElementById('result2').innerHTML = '';
+          let burn = "Your Guess is"
+          let burn2 = "BURNING"
+          const element = document.createElement('div');
+          const element2 = document.createElement('div');
+          element.innerHTML = burn
+          element2.innerHTML = burn2
+          result.appendChild(element);
+          result2.appendChild(element2);
+          result2.style.color = "red";
+        } else {
+          document.getElementById('result').innerHTML = '';
+          document.getElementById('result2').innerHTML = '';
+          let victory = "Your Guess is"
+          let victory2 = "CORRECT"
+          let victory3 = "Attempts to Reach Goal: "
+          const element = document.createElement('div');
+          const element2 = document.createElement('div');
+          const element3 = document.createElement('div');
+          element.innerHTML = victory
+          element2.innerHTML = victory2
+          element3.innerHTML = victory3 + attempt
+          result.appendChild(element);
+          result2.appendChild(element2);
+          result3.appendChild(element3);
+          result2.style.color = "green";
+        }
+       }
+      //  for tmrw; lots of stuff need to be done main thing is figure out how tf run worked after you chnaged input order by using the supersimpledev tutorial for section9exercise 2; then make a bunch of if statement for the different ammount of difs and append a div that youi make inside the if statemnt into the result div; also make the victory screen
+    </script>
+  </body>
+</html>
